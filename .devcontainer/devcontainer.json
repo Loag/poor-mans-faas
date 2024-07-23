@@ -1,0 +1,21 @@
+{
+  "name": "go-service-template",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/go": {},
+    "ghcr.io/devcontainers/features/docker-outside-of-docker": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "go.lintFlags": ["--enable-all", "--new"],
+        "go.useLanguageServer": true
+      },
+      "extensions": [
+        "golang.go",
+        "enkia.tokyo-night",
+        "PKief.material-icon-theme"
+      ]
+    }
+  }
+}
