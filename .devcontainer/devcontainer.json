@@ -1,5 +1,5 @@
 {
-  "name": "go-service-template",
+  "name": "faas-dev",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/go": {},
@@ -8,7 +8,10 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "go.lintFlags": ["--enable-all", "--new"],
+        "go.lintFlags": [
+          "--enable-all",
+          "--new"
+        ],
         "go.useLanguageServer": true
       },
       "extensions": [
