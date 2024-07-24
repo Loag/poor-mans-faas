@@ -1,7 +1,5 @@
 package main
 
-// import gin
-
 import (
 	event "faas/internal/events"
 	"faas/internal/runner"
@@ -14,8 +12,6 @@ import (
 const base_path = "/opt/"
 
 func main() {
-
-	// create a gin router
 	router := gin.Default()
 
 	run := runner.New()
