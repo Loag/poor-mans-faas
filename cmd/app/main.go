@@ -11,7 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const base_path = "/opt/faas_dev/"
+const base_path = "/opt/"
 
 func main() {
 
@@ -31,12 +31,20 @@ func main() {
 		outFile, err := os.Create(filePath)
 		if err != nil {
 			c.JSON(500, gin.H{"message": err.Error()})
+			return
 		}
 		defer outFile.Close()
 
 		_, err = io.Copy(outFile, c.Request.Body)
 		if err != nil {
 			c.JSON(500, gin.H{"message": err.Error()})
+			return
+		}
+
+		err = os.Chmod(filePath, 755)
+		if err != nil {
+			c.JSON(500, gin.H{"message": err.Error()})
+			return
 		}
 
 		c.JSON(200, gin.H{"message": "File uploaded successfully"})
@@ -49,6 +57,7 @@ func main() {
 		req, err := event.FromRequest(c.Request)
 		if err != nil {
 			c.JSON(500, gin.H{"message": err.Error()})
+			return
 		}
 
 		res := run.Run(req)

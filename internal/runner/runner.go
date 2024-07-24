@@ -32,7 +32,7 @@ func (r *Runner) Run(ev event.HTTPEndpoint) responses.Output {
 
 	defer cancel()
 
-	cmd := exec.CommandContext(ctx, "/opt/faas_dev/to_run", string(st))
+	cmd := exec.CommandContext(ctx, "/opt/to_run", string(st))
 
 	var res bytes.Buffer
 
